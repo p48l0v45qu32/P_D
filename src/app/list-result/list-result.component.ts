@@ -23,7 +23,7 @@ export class ListResultComponent implements OnInit {
   isLoadingResults = true;
 
   //colonnes a afficher dans le tableau material datatable
-  displayedColumns = ["id_ngGlobal","login_status", "lastname", "firstname","mail"];
+  displayedColumns = ["id_ngGlobal","login_status", "lastname", "firstname","mail", "phone"];
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
