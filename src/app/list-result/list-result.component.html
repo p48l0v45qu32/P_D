@@ -1,0 +1,40 @@
+<div class="example-loading-shade" *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+</mat-form-field>
+
+<!-- table créée avec le material angular datatable-->
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="id_ngGlobal">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
+    <td mat-cell *matCellDef="let data">{{ data.id_ngGlobal }}</td>
+  </ng-container>
+  <mat-divider [vertical]="true"></mat-divider>
+  <ng-container matColumnDef="login_status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>login_status</th>
+    <td mat-cell *matCellDef="let data">{{ data.login_status }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>lastname</th>
+    <td mat-cell *matCellDef="let data">{{ data.lastname }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>firstname</th>
+    <td mat-cell *matCellDef="let data">{{ data.firstname }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="mail">
+    <th mat-header-cell *matHeaderCellDef>mail</th>
+    <td mat-cell *matCellDef="let data">{{ data.mail }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20, 100]" [pageSize]="20" showFirstLastButtons></mat-paginator>

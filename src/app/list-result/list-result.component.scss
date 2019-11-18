@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+  th,
+  td {
+    text-align: left;
+    padding: 10px;
+  }
+
+  .mat-cell {
+    border-right: 1px solid;
+    border-right-color: rgba(0, 0, 0, 0.12);
+  }
+}
